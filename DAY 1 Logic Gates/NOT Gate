@@ -1,0 +1,55 @@
+// Day 1: Conquer the Gates of Logic.
+
+//001 - Structural Modelling
+  
+    `timescale 1ns / 1ps
+    module NOT_gate(a, y);
+    input a;
+    output y;
+ 
+    not(y, a);
+  
+    endmodule
+
+//002 - Dataflow Modelling
+
+    `timescale 1ns / 1ps
+    module NOT_gate(a, y);
+    input a;
+    output y;
+    
+    assign y = ~a;
+    
+    endmodule
+
+//003 - Behavioural Modelling
+
+   `timescale 1ns / 1ps
+    module NOT_gate(a, y);
+    input a;
+    output reg y;
+    
+    always @ (a)
+    begin
+    y = ~a;
+    end
+
+    endmodule
+
+//004 - Verilog TestBench
+
+    `timescale 1ns / 1ps
+    module NOT_gate_tb;
+    reg a;
+    wire y;
+    AND_gate uut(.a(a),.y(y));
+    
+    initial begin
+    $monitor("Time = %0t | a = %b, y = %b", $time, a, b, y);
+    a = 0;
+    #10;
+    a = 1;
+    #10;
+    $finish;
+    end
+    endmodule
