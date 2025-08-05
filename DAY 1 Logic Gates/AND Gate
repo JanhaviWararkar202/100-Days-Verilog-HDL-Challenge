@@ -1,0 +1,37 @@
+// Day 1: Conquer the Gates of Logic.
+
+//001 - Structural Modelling
+  
+    `timescale 1ns / 1ps
+    module AND_gate(a, b, y);
+    input a, b;
+    output y;
+  
+    and(y, a, b);
+  
+    endmodule
+
+//002 - Dataflow Modelling
+
+    `timescale 1ns / 1ps
+    module AND_gate(a, b, y);
+    input a, b;
+    output y;
+    
+    assign y = a & b;
+    
+    endmodule
+
+//003 - Behavioural Modelling
+
+    `timescale 1ns / 1ps
+    module AND_gate(a, b, y);
+    input a, b;
+    output reg y;
+    
+    always @ (a, b)
+    begin
+    y = a & b;
+    end
+
+    endmodule
