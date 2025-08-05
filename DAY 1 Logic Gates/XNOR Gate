@@ -18,7 +18,7 @@
     input a, b;
     output y;
     
-    assign y = a ^ b;
+    assign y = ~(a ^ b);
     
     endmodule
 
@@ -31,7 +31,7 @@
     
     always @ (a, b)
     begin
-    y = a ^ b;
+    y = ~(a ^ b);
     end
 
     endmodule
