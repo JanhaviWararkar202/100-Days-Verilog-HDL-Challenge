@@ -42,10 +42,10 @@
     module NOT_gate_tb;
     reg a;
     wire y;
-    AND_gate uut(.a(a),.y(y));
+    NOT_gate uut(.a(a),.y(y));
     
     initial begin
-    $monitor("Time = %0t | a = %b, y = %b", $time, a, b, y);
+    $monitor("Time = %0t | a = %b, y = %b", $time, a, y);
     a = 0;
     #10;
     a = 1;
