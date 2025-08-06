@@ -1,0 +1,21 @@
+`timescale 1ns / 1ps
+module mux4_1_tb;
+reg [3:0] Y;
+reg [1:0] S;
+wire OUT;
+mux4_1 uut(.Y(Y), .S(S), .OUT(OUT));
+initial begin
+$monitor("Time = %0t | Y = %b, S = %b, OUT = %b", $time, Y, S, OUT);
+
+Y = 4'b1010; //example sequence
+S = 2'b00;
+#10;
+S = 2'b01;
+#10;
+S = 2'b10;
+#10;
+S = 2'b11;
+#10;
+$finish;
+end
+endmodule
