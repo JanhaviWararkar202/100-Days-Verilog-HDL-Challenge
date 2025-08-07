@@ -1,0 +1,31 @@
+//structural modelling
+
+    `timescale 1ns / 1ps
+    module Half_Adder(A, B, SUM, CARRY);
+    input A, B;
+    output SUM, CARRY;
+    xor(SUM, A, B);
+    and(CARRY, A, B);
+    endmodule
+
+//dataflow modelling
+
+    `timescale 1ns / 1ps
+    module Half_Adder(A, B, SUM, CARRY);
+    input A, B;
+    output SUM, CARRY;
+    assign SUM = A ^ B;
+    assign CARRY = A & B;
+    endmodule
+
+//Behavioural modelling
+
+    `timescale 1ns / 1ps
+    module Half_Adder(A, B, SUM, CARRY);
+    input A, B;
+    output reg SUM, CARRY;
+    always @ (A, B) begin
+    assign SUM = A ^ B;
+    assign CARRY = A & B;
+    end
+    endmodule
