@@ -1,0 +1,39 @@
+//Structural Modelling
+    module full_adder_s (
+        input a,b,cin,
+        output sum,carry
+    );
+    
+    wire w1,w2,w3,w4;
+    
+    xor(w1,a,b);
+    xor(sum,w1,cin);  
+    
+    and(w2,a,b);
+    and(w3,b,cin);
+    and(w4,cin,a);
+    or(carry,w2,w3,w4); 
+    endmodule
+
+
+//Dataflow Modelling
+
+    `timescale 1ns / 1ps
+    module Full_Adder(A, B, Cin, SUM, CARRY);
+    input A, B, Cin;
+    output SUM, CARRY;
+    assign SUM = A ^ B ^ Cin;
+    assign CARRY = (A & B) | (B & Cin)| (A & Cin);
+    endmodule
+
+//Behavioural modelling
+
+    `timescale 1ns / 1ps
+    module Full_Adder(A, B, Cin, SUM, CARRY);
+    input A, B, Cin;
+    output reg SUM, CARRY;
+    always @ (A, B, Cin) begin
+    SUM = A ^ B ^ Cin;
+    CARRY = (A & B) | (B & Cin)| (A & Cin);
+    end
+    endmodule
