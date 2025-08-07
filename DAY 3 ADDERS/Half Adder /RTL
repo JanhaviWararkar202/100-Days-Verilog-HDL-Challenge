@@ -25,7 +25,7 @@
     input A, B;
     output reg SUM, CARRY;
     always @ (A, B) begin
-    assign SUM = A ^ B;
-    assign CARRY = A & B;
+     SUM = A ^ B;
+     CARRY = A & B;
     end
     endmodule
