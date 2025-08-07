@@ -1,0 +1,15 @@
+`timescale 1ns / 1ps
+
+module Full_Adder_tb();
+reg A, B, Cin;
+wire SUM, CARRY;
+Full_Adder uut(.A(A), .B(B), .Cin(Cin), .SUM(SUM), .CARRY(CARRY));
+initial begin
+$monitor ("Time = %0t | A = %b, B = %b, Cin = %b | SUM = %b, CARRY = %b", $time, A, B, Cin, SUM, CARRY);
+for (integer i = 0; i <8; i = i+1) begin
+    {A, B, Cin} = i[2:0];
+    #10;
+end
+$finish;
+end
+endmodule
