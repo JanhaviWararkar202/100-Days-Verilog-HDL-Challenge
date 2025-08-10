@@ -1,0 +1,19 @@
+`timescale 1ns / 1ps
+
+module N_bit_adder_tb;
+parameter N_tb = 8; //user defined
+reg [N_tb-1:0] X, Y;
+wire [N_tb-1:0] Sum;
+wire Carry;
+N_bit_adder uut(.X(X), .Y(Y), .Sum(Sum), .Carry(Carry));
+initial begin
+$monitor("Time = %0t | X = %b, Y = %b | Sum = %b, Carry = %b", $time, X, Y, Sum, Carry);
+X = 8'b1010;  // 10
+Y = 8'b0111;  // 7
+#10;
+X = 8'b11111111;  // 255
+Y = 8'b0001;  // 1
+#10;
+$finish;
+end
+endmodule
