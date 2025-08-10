@@ -1,0 +1,9 @@
+`timescale 1ns / 1ps
+
+module N_bit_adder(X, Y, Sum, Carry);
+parameter N = 8; //N bit input where N = 32 (example)
+input [N-1:0]X, Y;
+output [N-1:0] Sum;
+output Carry;
+assign {Carry, Sum} = X + Y;
+endmodule
