@@ -1,0 +1,23 @@
+`timescale 1ns / 1ps
+module ripple_adder_tb;
+  reg [3:0] X, Y;      // Test inputs
+  wire [3:0] S;        // Sum output
+  wire Co;             // Carry output
+
+  ripple_adder uut (.X(X), .Y(Y), .S(S), .Co(Co));
+
+  integer i, j;
+
+  initial begin
+    $monitor("Time=%0t | X=%b | Y=%b | SUM=%b | Co=%b", $time, X, Y, S, Co);
+
+    for (i = 0; i < 16; i = i + 1) begin
+      for (j = 0; j < 16; j = j + 1) begin
+        X = i;
+        Y = j;
+        #5;  
+      end
+    end
+    $finish;
+  end
+endmodule
